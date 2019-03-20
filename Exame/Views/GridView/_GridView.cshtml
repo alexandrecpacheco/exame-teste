@@ -1,0 +1,40 @@
+﻿@using MovimentosManuais.Model;
+@using Exame.Controllers;
+@{
+    GridViewController grid = new GridViewController();
+    List<MovimentoManual> list = grid.ConsultarProdutos();
+}
+
+<div class="container">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped" id="table">
+            <thead>
+                <tr>
+                    <th class="text-center">Mês</th>
+                    <th class="text-center">Ano</th>
+                    <th class="text-center">Codigo Produto</th>
+                    <th class="text-center">Desc. Produto</th>
+                    <th class="text-center">NR Lançamento</th>
+                    <th class="text-center">Descrição</th>
+                    <th class="text-center">Valor</th>
+                </tr>
+            </thead>
+            @{
+                foreach (var item in list)
+                {
+                    <tbody>
+                        <tr class="grid">
+                            <td class="text-center">@item.DatMes</td>
+                            <td class="text-center">@item.DatAno</td>
+                            <td class="text-center">@item.CodProduto</td>
+                            <td class="text-center">@item.DesProduto</td>
+                            <td class="text-center">@item.NumLancamento</td>
+                            <td class="text-center">@item.DesDescricao</td>
+                            <td class="text-center">@item.ValValor</td>
+                        </tr>
+                    </tbody>
+                }
+            }
+        </table>
+    </div>
+</div>
